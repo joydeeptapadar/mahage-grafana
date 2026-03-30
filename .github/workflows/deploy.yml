@@ -6,6 +6,16 @@ on:
       - main
     paths:
       - 'cloudformation/**'
+  workflow_dispatch:   # 👈 manual trigger added
+    inputs:
+      stack_name:
+        description: 'CloudFormation Stack Name'
+        required: true
+        default: grafana-stack
+      aws_region:
+        description: 'AWS Region'
+        required: true
+        default: us-east-1
 
 jobs:
   deploy:
