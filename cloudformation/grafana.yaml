@@ -30,6 +30,7 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess
         - arn:aws:iam::aws:policy/AWSXrayReadOnlyAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
   GrafanaSNSTopic:
     Type: AWS::SNS::Topic
     Properties:
@@ -49,7 +50,7 @@ Resources:
         - XRAY
 
       NotificationDestinations:
-        - !Ref GrafanaSNSTopic
+        - SNS
 
       PluginAdminEnabled: true
 
